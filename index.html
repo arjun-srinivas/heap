@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heap Snapshot Constructor View</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Heap Snapshot Constructor View</h1>
+        <p>
+          Upload a Chrome/V8 <code>.heapsnapshot</code> file to generate a constructor summary similar
+          to DevTools.
+        </p>
+      </header>
+
+      <section class="controls">
+        <label class="upload" for="snapshotInput">
+          <input id="snapshotInput" type="file" accept=".heapsnapshot,.json,application/json" />
+          <span>Choose heap snapshot</span>
+        </label>
+
+        <label class="searchWrap" for="searchInput">
+          <span>Filter constructors</span>
+          <input id="searchInput" type="search" placeholder="Search by constructor name" disabled />
+        </label>
+      </section>
+
+      <section id="status" class="status" aria-live="polite">Waiting for a file.</section>
+
+      <section class="tableWrap">
+        <table id="constructorTable" class="hidden">
+          <thead>
+            <tr>
+              <th data-sort="name">Constructor</th>
+              <th data-sort="count" class="numeric">Count</th>
+              <th data-sort="shallow" class="numeric">Shallow size</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
